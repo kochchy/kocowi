@@ -41,6 +41,13 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
     }
+
+    android.libraryVariants.all { variant ->
+        variant.outputs.all {
+
+            outputFileName = "cz.kochchy.subsampling_image_compose-${defaultConfig.versionName}.aar"
+        }
+    }
 }
 
 /*afterEvaluate {
