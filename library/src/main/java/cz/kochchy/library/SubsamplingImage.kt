@@ -1,6 +1,7 @@
 package cz.kochchy.library
 
 import android.graphics.drawable.BitmapDrawable
+import androidx.annotation.Keep
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLifecycleOwner
@@ -15,6 +16,7 @@ import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
 @Composable
+@Keep
 fun SubsamplingImage(modifier: Modifier, data: Any?) {
     val lifecycleOwner = LocalLifecycleOwner.current
 
