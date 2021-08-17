@@ -1,4 +1,4 @@
-package cz.kochchy.library
+package io.github.kochchy
 
 import android.graphics.drawable.BitmapDrawable
 import androidx.annotation.Keep
@@ -17,20 +17,18 @@ import kotlin.coroutines.CoroutineContext
 
 @Composable
 @Keep
-fun SubsamplingImage(modifier: Modifier, data: Any?) {
+fun SubsamplingImage(modifier: Modifier, data: Any?, maxScale : Float = 2f) {
     val lifecycleOwner = LocalLifecycleOwner.current
 
     AndroidView(
         modifier = modifier,
         factory = {
-            val view = SubsamplingScaleImageView(it)
-
-
-            return@AndroidView view
+            return@AndroidView SubsamplingScaleImageView(it).apply {
+                this.maxScale = maxScale
+            }
         },
         update = { imageView ->
             val context = imageView.context
-            // lifecycle.coroutineScope.launch {
             lifecycleOwner.addRepeatingJob(Lifecycle.State.STARTED, block = {
                 runCatching {
                     val loader = ImageLoader(context)
@@ -48,7 +46,6 @@ fun SubsamplingImage(modifier: Modifier, data: Any?) {
                     }
                 }
             })
-            //}
         }
     )
 }
@@ -60,9 +57,3 @@ fun LifecycleOwner.addRepeatingJob(
 ): Job = lifecycleScope.launch(coroutineContext) {
     lifecycle.repeatOnLifecycle(state, block)
 }
-
-
-/*
-lifecycleScope.launchBG {
-
-}*/

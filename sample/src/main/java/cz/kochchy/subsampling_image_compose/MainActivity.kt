@@ -10,8 +10,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import cz.kochchy.library.SubsamplingImage
 import cz.kochchy.subsampling_image_compose.ui.theme.Subsampling_image_composeTheme
+import io.github.kochchy.SubsamplingImage
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
