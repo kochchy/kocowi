@@ -10,10 +10,13 @@ internal class SubsamplingScaleTouchHandledWithTwoFingersImageView @JvmOverloads
     attrs: AttributeSet? = null
 ) : SubsamplingScaleImageView(context, attrs) {
 
+    var enableMoveByOneFinger = false
+
     var touchable: Boolean = false
 
-    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
-        touchable = ev.pointerCount > 1
-        return if (touchable) super.dispatchTouchEvent(ev) else true
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+        if (enableMoveByOneFinger) return super.dispatchTouchEvent(event)
+        touchable = event.pointerCount > 1
+        return if (touchable) super.dispatchTouchEvent(event) else true
     }
 }

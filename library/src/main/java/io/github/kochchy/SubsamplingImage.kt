@@ -20,8 +20,7 @@ import kotlin.coroutines.CoroutineContext
 
 @Composable
 @Keep
-fun SubsamplingImage(modifier: Modifier, data: Any?, maxScale: Float = 2f) {
-    val lifecycleOwner = LocalLifecycleOwner.current
+fun SubsamplingImage(modifier: Modifier, data: Any?, maxScale: Float = 2f, enableMoveByOneFinger : Boolean = false) {
     val context = LocalContext.current
 
     val bitmapState = remember(data) {
@@ -44,10 +43,11 @@ fun SubsamplingImage(modifier: Modifier, data: Any?, maxScale: Float = 2f) {
         modifier = modifier,
         factory = {
             return@AndroidView SubsamplingScaleTouchHandledWithTwoFingersImageView(it).apply {
-                setOnTouchListener { v, event ->
+                this.enableMoveByOneFinger = enableMoveByOneFinger
+                /*setOnTouchListener { v, event ->
                     val scale = this.scale
                     return@setOnTouchListener false
-                }
+                }*/
             }
         },
         update = { imageView ->
@@ -70,10 +70,3 @@ private suspend fun loadBitmap(context: Context, data: Any?): Bitmap? {
     return (result as? BitmapDrawable?)?.bitmap
 }
 
-fun LifecycleOwner.addRepeatingJob(
-    state: Lifecycle.State,
-    coroutineContext: CoroutineContext = kotlin.coroutines.EmptyCoroutineContext,
-    block: suspend CoroutineScope.() -> Unit
-): Job = lifecycleScope.launch(coroutineContext) {
-    lifecycle.repeatOnLifecycle(state, block)
-}
