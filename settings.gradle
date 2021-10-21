@@ -8,4 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "subsampling_image_compose"
 include ':sample'
-include ':library'
+include ':subsampling-image-compose'

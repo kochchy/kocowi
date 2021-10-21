@@ -11,8 +11,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/sample" />
+            <option value="$PROJECT_DIR$/subsampling-image-compose" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
