@@ -43,7 +43,7 @@ android {
 
     android.libraryVariants.all { variant ->
         variant.outputs.all {
-            outputFileName = "cz.kochchy.subsampling_image_compose-${defaultConfig.versionName}-${it.name}.aar"
+            outputFileName = "io.github.kochchy-${defaultConfig.versionName}-${it.name}.aar"
         }
     }
 }

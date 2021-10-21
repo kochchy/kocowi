@@ -3,9 +3,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
     }
 }
 rootProject.name = "subsampling_image_compose"
 include ':sample'
-include ':subsampling-image-compose'
+include ':subsampling_image_compose'
+include ':rating_bar_compose'
+

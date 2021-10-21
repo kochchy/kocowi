@@ -16,8 +16,8 @@ android {
             storePassword keystoreProperties['storePassword']
         }
     }
-    compileSdk 30
-    buildToolsVersion "30.0.3"
+    compileSdk 31
+    buildToolsVersion "31.0.0"
 
     defaultConfig {
         applicationId "cz.kochchy.subsampling_image_compose"
@@ -54,7 +54,8 @@ android {
 }
 
 dependencies {
-    implementation project(':subsampling-image-compose')
+    implementation project(':subsampling_image_compose')
+    implementation project(':rating_bar_compose')
     implementation 'com.google.android.material:material:1.4.0'
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"

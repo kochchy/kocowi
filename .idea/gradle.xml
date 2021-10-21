@@ -11,8 +11,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/rating_bar_compose" />
             <option value="$PROJECT_DIR$/sample" />
-            <option value="$PROJECT_DIR$/subsampling-image-compose" />
+            <option value="$PROJECT_DIR$/subsampling_image_compose" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

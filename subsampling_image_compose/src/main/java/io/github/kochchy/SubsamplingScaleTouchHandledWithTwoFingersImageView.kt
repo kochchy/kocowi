@@ -3,8 +3,10 @@ package io.github.kochchy
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
+import androidx.annotation.Keep
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 
+@Keep
 internal class SubsamplingScaleTouchHandledWithTwoFingersImageView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
