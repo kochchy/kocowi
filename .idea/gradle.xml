@@ -16,7 +16,6 @@
             <option value="$PROJECT_DIR$/subsampling_image_compose" />
           </set>
         </option>
-        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>
