@@ -15,3 +15,5 @@ subsampling image for jetpack compose using coil and subsampling-scale-image-vie
 rating bar for compose
 
 `implementation("io.github.kochchy:rating-bar-compose:1.0.0")`
+
+https://vanniktech.github.io/gradle-maven-publish-plugin/central/

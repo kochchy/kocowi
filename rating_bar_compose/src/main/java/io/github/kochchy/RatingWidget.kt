@@ -1,3 +1,5 @@
+package io.github.kochchy
+
 import android.content.res.Resources
 import androidx.annotation.Keep
 import androidx.compose.foundation.Image
@@ -33,6 +35,7 @@ fun RatingWidget(
     spacing: Dp = 2.dp,
     rating: Float,
     max: Int = 5,
+    step: Float? = null,
     painterFullImage: Painter = rememberVectorPainter(image = Icons.Default.Star),
     painterEmptyImage: Painter = rememberVectorPainter(image = Icons.Default.StarOutline),
 ) {
@@ -44,7 +47,7 @@ fun RatingWidget(
                 .align(Alignment.Center)
         ) {
             RatingWidgetRender(
-                rating = rating,
+                rating = step?.let { roundStep(rating, step) } ?: rating,
                 size = size,
                 spacing = spacing,
                 max = max,
@@ -63,7 +66,7 @@ fun RatingWidget(
     spacing: Dp = 2.dp,
     initialValue: Float = 0f,
     step: Float = 0.5f,
-    minRating: Float = 0f,
+    min: Float = 0f,
     max: Int = 5,
     painterFullImage: Painter = rememberVectorPainter(image = Icons.Default.Star),
     painterEmptyImage: Painter = rememberVectorPainter(image = Icons.Default.StarOutline),
@@ -84,7 +87,7 @@ fun RatingWidget(
 
                     pointerPosition.value = x
 
-                    val rating = calcRating(x, width, step, max, minRating)
+                    val rating = calcRating(x, width, step, max, min)
                     ratingChanged.invoke(rating)
                     ratingState.value = rating
                 }),
@@ -95,7 +98,7 @@ fun RatingWidget(
                     val x = it.x
                     pointerPosition.value = x
 
-                    val rating = calcRating(x, width, step, max, minRating)
+                    val rating = calcRating(x, width, step, max, min)
                     ratingChanged.invoke(rating)
                     ratingState.value = rating
                 })
